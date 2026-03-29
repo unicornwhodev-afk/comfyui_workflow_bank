@@ -1,0 +1,424 @@
+{
+  "last_node_id": 20,
+  "last_link_id": 25,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [50, 50],
+      "size": [315, 98],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [1],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [2, 3],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [4],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "dreamshaper_8.safetensors"
+      ],
+      "title": "SD1.5 Checkpoint"
+    },
+    {
+      "id": 2,
+      "type": "ADE_LoadAnimateDiffModel",
+      "pos": [50, 200],
+      "size": [315, 58],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MOTION_MODEL",
+          "type": "MOTION_MODEL_ADE",
+          "links": [5],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ADE_LoadAnimateDiffModel"
+      },
+      "widgets_values": [
+        "animatediff_lightning_4step.safetensors"
+      ],
+      "title": "⚡ AnimateDiff Lightning (4 steps!)"
+    },
+    {
+      "id": 3,
+      "type": "ADE_ApplyAnimateDiffModelSimple",
+      "pos": [50, 310],
+      "size": [315, 58],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "motion_model",
+          "type": "MOTION_MODEL_ADE",
+          "link": 5
+        },
+        {
+          "name": "motion_lora",
+          "type": "MOTION_LORA",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "M_MODELS",
+          "type": "M_MODELS",
+          "links": [6],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ADE_ApplyAnimateDiffModelSimple"
+      }
+    },
+    {
+      "id": 4,
+      "type": "ADE_UseEvolvedSampling",
+      "pos": [50, 420],
+      "size": [315, 82],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "m_models",
+          "type": "M_MODELS",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [7],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ADE_UseEvolvedSampling"
+      },
+      "widgets_values": [
+        "lcm >> sqrt_linear"
+      ],
+      "title": "Evolved Sampling (LCM mode)"
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [450, 50],
+      "size": [400, 150],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [8],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A majestic lion walking through the savanna, golden hour, cinematic lighting, 4k, detailed fur, wildlife photography"
+      ],
+      "title": "✏️ Positive Prompt"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [450, 250],
+      "size": [400, 100],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [9],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry, low quality, distorted, deformed, ugly, bad anatomy"
+      ],
+      "title": "❌ Negative Prompt"
+    },
+    {
+      "id": 7,
+      "type": "ADE_EmptyLatentImageLarge",
+      "pos": [450, 400],
+      "size": [315, 106],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [10],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ADE_EmptyLatentImageLarge"
+      },
+      "widgets_values": [
+        512,
+        512,
+        16
+      ],
+      "title": "Empty Latent (16 frames)"
+    },
+    {
+      "id": 8,
+      "type": "KSampler",
+      "pos": [900, 50],
+      "size": [315, 262],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 7
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 8
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 9
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [11],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        4,
+        1.5,
+        "lcm",
+        "sgm_uniform",
+        1.0
+      ],
+      "title": "⚡ KSampler (4 steps only!)"
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [900, 360],
+      "size": [210, 46],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 11
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [12],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 10,
+      "type": "VHS_VideoCombine",
+      "pos": [900, 450],
+      "size": [315, 290],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 8,
+        "loop_count": 0,
+        "filename_prefix": "animatediff_lightning",
+        "format": "video/h264-mp4",
+        "pingpong": false,
+        "save_output": true
+      },
+      "title": "📹 Export Video"
+    },
+    {
+      "id": 11,
+      "type": "ADE_AnimateDiffLoRALoader",
+      "pos": [50, 550],
+      "size": [315, 82],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MOTION_LORA",
+          "type": "MOTION_LORA",
+          "links": null,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ADE_AnimateDiffLoRALoader"
+      },
+      "widgets_values": [
+        "Animatediffmotionlora_zoomin.safetensors",
+        0.8
+      ],
+      "title": "🎬 Motion LoRA (Optional)"
+    },
+    {
+      "id": 20,
+      "type": "Note",
+      "pos": [450, 550],
+      "size": [400, 220],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "⚡ ANIMATEDIFF LIGHTNING - ULTRA FAST\n\n🚀 VITESSE: 4 steps au lieu de 20+!\n   → Génération ~5x plus rapide\n\n⚙️ RÉGLAGES CRITIQUES:\n- Steps: 4 (ou 8 pour meilleure qualité)\n- CFG: 1.5 (très bas, c'est normal)\n- Sampler: lcm\n- Scheduler: sgm_uniform\n\n📦 MODÈLES REQUIS:\n- dreamshaper_8.safetensors (ou autre SD1.5)\n- animatediff_lightning_4step.safetensors\n\n🎬 MOTION LORAS (optionnel):\n- Animatediffmotionlora_zoomin.safetensors\n- Animatediffmotionlora_zoomout.safetensors\n- Animatediffmotionlora_panleft.safetensors\n- Animatediffmotionlora_panright.safetensors\n\n💡 TIP: Connectez le Motion LoRA au node ApplyAnimateDiff"
+      ],
+      "title": "📋 Instructions"
+    }
+  ],
+  "links": [
+    [1, 1, 0, 4, 0, "MODEL"],
+    [2, 1, 1, 5, 0, "CLIP"],
+    [3, 1, 1, 6, 0, "CLIP"],
+    [4, 1, 2, 9, 1, "VAE"],
+    [5, 2, 0, 3, 0, "MOTION_MODEL_ADE"],
+    [6, 3, 0, 4, 1, "M_MODELS"],
+    [7, 4, 0, 8, 0, "MODEL"],
+    [8, 5, 0, 8, 1, "CONDITIONING"],
+    [9, 6, 0, 8, 2, "CONDITIONING"],
+    [10, 7, 0, 8, 3, "LATENT"],
+    [11, 8, 0, 9, 0, "LATENT"],
+    [12, 9, 0, 10, 0, "IMAGE"]
+  ],
+  "groups": [
+    {
+      "title": "📥 Modèles",
+      "bounding": [40, 0, 340, 540],
+      "color": "#3f789e"
+    },
+    {
+      "title": "✏️ Prompts",
+      "bounding": [440, 0, 420, 370],
+      "color": "#8B4513"
+    },
+    {
+      "title": "⚡ Génération Ultra-Rapide",
+      "bounding": [890, 0, 340, 420],
+      "color": "#FFD700"
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [50, 50]
+    }
+  },
+  "version": 0.4
+}

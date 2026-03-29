@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="932" viewBox="0 0 1200 932" role="img" aria-label="Top modèles les plus réutilisés">
+<rect width="100%" height="100%" rx="24" fill="#0d1117"/>
+<rect x="16" y="16" width="1168" height="900" rx="18" fill="#161b22" stroke="#30363d"/>
+<text x="36" y="54" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Top modèles les plus réutilisés</text>
+<text x="36" y="84" fill="#8b949e" font-family="Arial, Helvetica, sans-serif" font-size="16">Réutilisation des modèles dans plusieurs workflows</text>
+<line x1="310.0" y1="105" x2="310.0" y2="892" stroke="#30363d" stroke-dasharray="4 6"/>
+<text x="310.0" y="914" fill="#8b949e" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">0</text>
+<line x1="512.5" y1="105" x2="512.5" y2="892" stroke="#30363d" stroke-dasharray="4 6"/>
+<text x="512.5" y="914" fill="#8b949e" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">11</text>
+<line x1="715.0" y1="105" x2="715.0" y2="892" stroke="#30363d" stroke-dasharray="4 6"/>
+<text x="715.0" y="914" fill="#8b949e" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">22</text>
+<line x1="917.5" y1="105" x2="917.5" y2="892" stroke="#30363d" stroke-dasharray="4 6"/>
+<text x="917.5" y="914" fill="#8b949e" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">33</text>
+<line x1="1120.0" y1="105" x2="1120.0" y2="892" stroke="#30363d" stroke-dasharray="4 6"/>
+<text x="1120.0" y="914" fill="#8b949e" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">44</text>
+<rect x="310" y="115" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="115" width="810.0" height="28" rx="10" fill="#58a6ff"/>
+<text x="292" y="135" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">checkpoints/sd_xl_base_1.0.safetensors</text>
+<text x="1130.0" y="135" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">44</text>
+<rect x="310" y="153" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="153" width="441.8" height="28" rx="10" fill="#3fb950"/>
+<text x="292" y="173" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">text_encoders/clip_l.safetensors</text>
+<text x="761.8" y="173" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">24</text>
+<rect x="310" y="191" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="191" width="349.8" height="28" rx="10" fill="#d29922"/>
+<text x="292" y="211" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">vae/ae.safetensors</text>
+<text x="669.8" y="211" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">19</text>
+<rect x="310" y="229" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="229" width="294.5" height="28" rx="10" fill="#f78166"/>
+<text x="292" y="249" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">diffusion_models/flux1-dev.safetensors</text>
+<text x="614.5" y="249" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">16</text>
+<rect x="310" y="267" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="267" width="276.1" height="28" rx="10" fill="#bc8cff"/>
+<text x="292" y="287" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">controlnet/control-lora-canny-rank256.saf…</text>
+<text x="596.1" y="287" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">15</text>
+<rect x="310" y="305" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="305" width="257.7" height="28" rx="10" fill="#58a6ff"/>
+<text x="292" y="325" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">text_encoders/t5xxl_fp8_e4m3fn_scaled.saf…</text>
+<text x="577.7" y="325" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">14</text>
+<rect x="310" y="343" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="343" width="220.9" height="28" rx="10" fill="#3fb950"/>
+<text x="292" y="363" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">checkpoints/dreamshaper_8.safetensors</text>
+<text x="540.9" y="363" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">12</text>
+<rect x="310" y="381" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="381" width="202.5" height="28" rx="10" fill="#d29922"/>
+<text x="292" y="401" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">controlnet/control_v11f1p_sd15_depth.pth</text>
+<text x="522.5" y="401" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">11</text>
+<rect x="310" y="419" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="419" width="202.5" height="28" rx="10" fill="#f78166"/>
+<text x="292" y="439" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">controlnet/control_v11p_sd15_openpose.pth</text>
+<text x="522.5" y="439" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">11</text>
+<rect x="310" y="457" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="457" width="202.5" height="28" rx="10" fill="#bc8cff"/>
+<text x="292" y="477" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">controlnet/FLUX-ControlNet-Union-Pro.safe…</text>
+<text x="522.5" y="477" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">11</text>
+<rect x="310" y="495" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="495" width="184.1" height="28" rx="10" fill="#58a6ff"/>
+<text x="292" y="515" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">controlnet/control_v11p_sd15_canny.pth</text>
+<text x="504.1" y="515" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">10</text>
+<rect x="310" y="533" width="810" height="28" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="310" y="533" width="184.1" height="28" rx="10" fill="#3fb950"/>
+<text x="292" y="553" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="end">loras/add_detail.safetensors</text>
+<text x="504.1" y="553" fill="#c9d1d9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">10</text>
+</svg>

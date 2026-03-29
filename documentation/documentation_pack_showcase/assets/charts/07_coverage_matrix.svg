@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-label="Coverage matrix">
+<rect width="1200" height="380" rx="24" fill="#0d1117"/>
+<rect x="10" y="10" width="1180" height="360" rx="20" fill="#0d1117" stroke="#30363d"/>
+<text x="36" y="52" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="26" font-weight="800">Coverage Matrix</text>
+<text x="36" y="78" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Domaines actifs, poids relatif et lecture de maintenance.</text>
+<text x="36" y="120" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">Domain</text><text x="350" y="120" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">Workflows</text><text x="540" y="120" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">Share</text><text x="760" y="120" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">Role</text><text x="1030" y="120" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">Maintenance lens</text><line x1="36" y1="132" x2="1164" y2="132" stroke="#21262d"/>
+<text x="36" y="170" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">image</text>
+<text x="350" y="170" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">81</text>
+<text x="540" y="170" fill="#58a6ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">60.9%</text>
+<text x="760" y="170" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">core generation</text>
+<text x="1030" y="170" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">highest blast radius</text>
+<line x1="36" y1="182" x2="1164" y2="182" stroke="#161b22"/>
+
+<text x="36" y="212" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">video</text>
+<text x="350" y="212" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">30</text>
+<text x="540" y="212" fill="#58a6ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">22.6%</text>
+<text x="760" y="212" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">motion / sequence</text>
+<text x="1030" y="212" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">version-sensitive models</text>
+<line x1="36" y1="224" x2="1164" y2="224" stroke="#161b22"/>
+
+<text x="36" y="254" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">3D</text>
+<text x="350" y="254" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">10</text>
+<text x="540" y="254" fill="#58a6ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">7.5%</text>
+<text x="760" y="254" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">mesh / reconstruction</text>
+<text x="1030" y="254" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">specialized node stack</text>
+<line x1="36" y1="266" x2="1164" y2="266" stroke="#161b22"/>
+
+<text x="36" y="296" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">workflow audio</text>
+<text x="350" y="296" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">7</text>
+<text x="540" y="296" fill="#58a6ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">5.3%</text>
+<text x="760" y="296" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">audio generation</text>
+<text x="1030" y="296" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">narrow but distinct</text>
+<line x1="36" y1="308" x2="1164" y2="308" stroke="#161b22"/>
+
+<text x="36" y="338" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">game_assets</text>
+<text x="350" y="338" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">5</text>
+<text x="540" y="338" fill="#58a6ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">3.8%</text>
+<text x="760" y="338" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">materials / textures</text>
+<text x="1030" y="338" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">small reusable pack</text>
+<line x1="36" y1="350" x2="1164" y2="350" stroke="#161b22"/>
+</svg>

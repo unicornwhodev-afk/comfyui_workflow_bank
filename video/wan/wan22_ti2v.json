@@ -1,0 +1,398 @@
+{
+  "last_node_id": 20,
+  "last_link_id": 28,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [50, 50],
+      "size": [380, 82],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [1],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "wan2.2_ti2v_5B_fp16.safetensors",
+        "default"
+      ],
+      "title": "🎬 WAN 2.2 TI2V 5B"
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [50, 180],
+      "size": [380, 82],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [2],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan"
+      ],
+      "title": "UMT5-XXL Text Encoder"
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [50, 310],
+      "size": [380, 58],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [3, 15],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "wan2.2_vae.safetensors"
+      ],
+      "title": "WAN 2.2 VAE"
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [50, 420],
+      "size": [380, 314],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [4],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "input_frame.png",
+        "image"
+      ],
+      "title": "📸 Input Image (First Frame)"
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [500, 50],
+      "size": [450, 180],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [5],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "The woman in the image slowly turns her head and smiles warmly, her hair gently swaying. Soft natural lighting, cinematic, smooth motion, high quality video"
+      ],
+      "title": "✏️ Motion Prompt (describe movement)"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [500, 280],
+      "size": [450, 100],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [6],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "static, no motion, blurry, distorted, low quality, ugly, deformed"
+      ],
+      "title": "❌ Negative Prompt"
+    },
+    {
+      "id": 7,
+      "type": "WanImageToVideo",
+      "pos": [500, 430],
+      "size": [380, 200],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 3
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [7],
+          "slot_index": 0
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [8],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WanImageToVideo"
+      },
+      "widgets_values": [
+        832,
+        480,
+        81,
+        1
+      ],
+      "title": "🎬 WAN I2V (81 frames = ~3s)"
+    },
+    {
+      "id": 8,
+      "type": "KSampler",
+      "pos": [1000, 50],
+      "size": [315, 262],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 7
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [9],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        30,
+        5.0,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "KSampler (30 steps)"
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [1000, 360],
+      "size": [210, 46],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 9
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [10],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 10,
+      "type": "VHS_VideoCombine",
+      "pos": [1000, 450],
+      "size": [315, 290],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "wan22_ti2v",
+        "format": "video/h264-mp4",
+        "pingpong": false,
+        "save_output": true
+      },
+      "title": "📹 Export Video"
+    },
+    {
+      "id": 20,
+      "type": "Note",
+      "pos": [500, 680],
+      "size": [400, 300],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "🎬 WAN 2.2 TEXT+IMAGE TO VIDEO\n\n🎯 OBJECTIF:\nAnimer une image statique avec description textuelle\ndu mouvement souhaité.\n\n⚙️ RÉGLAGES:\n- Steps: 30 (qualité)\n- CFG: 5.0\n- Resolution: 832x480 (ou 480x832 portrait)\n- Frames: 81 (~3.4s @ 24fps)\n\n📦 MODÈLES REQUIS:\n- wan2.2_ti2v_5B_fp16.safetensors (9.5GB)\n- umt5_xxl_fp8_e4m3fn_scaled.safetensors\n- wan2.2_vae.safetensors\n\n💡 TIPS PROMPTS:\n1. Référencez l'image: \"The person in the image...\"\n2. Décrivez le mouvement: \"slowly turns\", \"walks\"\n3. Ajoutez style: \"cinematic\", \"smooth motion\"\n4. Évitez descriptions statiques\n\n🔄 VARIANTES:\n- wan2.2_fun_control → avec ControlNet\n- wan2.2_animate → avec pose video\n\n⚠️ VRAM: ~16GB minimum"
+      ],
+      "title": "📋 Instructions"
+    }
+  ],
+  "links": [
+    [1, 1, 0, 8, 0, "MODEL"],
+    [2, 2, 0, 5, 0, "CLIP"],
+    [3, 3, 0, 7, 1, "VAE"],
+    [4, 4, 0, 7, 2, "IMAGE"],
+    [5, 5, 0, 7, 0, "CONDITIONING"],
+    [6, 6, 0, 8, 2, "CONDITIONING"],
+    [7, 7, 0, 8, 1, "CONDITIONING"],
+    [8, 7, 1, 8, 3, "LATENT"],
+    [9, 8, 0, 9, 0, "LATENT"],
+    [10, 9, 0, 10, 0, "IMAGE"],
+    [15, 3, 0, 9, 1, "VAE"]
+  ],
+  "groups": [
+    {
+      "title": "📥 WAN 2.2 Models + Input",
+      "bounding": [40, 0, 410, 780],
+      "color": "#3f789e"
+    },
+    {
+      "title": "✏️ Prompts & I2V Config",
+      "bounding": [490, 0, 470, 670],
+      "color": "#8B4513"
+    },
+    {
+      "title": "⚡ Génération & Export",
+      "bounding": [990, 0, 340, 500],
+      "color": "#2e7d32"
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.65,
+      "offset": [50, 50]
+    }
+  },
+  "version": 0.4
+}

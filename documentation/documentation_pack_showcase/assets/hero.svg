@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="Workflow Catalog Showcase">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="55%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#1f6feb"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#8957e5"/>
+      <stop offset="100%" stop-color="#bf8cff"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0" x2="1">
+      <stop offset="0%" stop-color="#2ea043"/>
+      <stop offset="100%" stop-color="#56d364"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="42"/></filter>
+  </defs>
+  <rect width="1280" height="420" fill="url(#bg)"/>
+  <circle cx="1040" cy="70" r="130" fill="#1f6feb" opacity="0.18" filter="url(#blur)"/>
+  <circle cx="1110" cy="280" r="120" fill="#8957e5" opacity="0.16" filter="url(#blur)"/>
+  <circle cx="860" cy="320" r="90" fill="#2ea043" opacity="0.14" filter="url(#blur)"/>
+  <g opacity="0.22">
+    <path d="M760 90 H1180" stroke="#58a6ff" stroke-width="2"/>
+    <path d="M760 150 H1180" stroke="#58a6ff" stroke-width="2"/>
+    <path d="M760 210 H1180" stroke="#58a6ff" stroke-width="2"/>
+    <path d="M760 270 H1180" stroke="#58a6ff" stroke-width="2"/>
+    <path d="M760 330 H1180" stroke="#58a6ff" stroke-width="2"/>
+  </g>
+  <g transform="translate(70,76)">
+    <rect x="0" y="0" width="132" height="32" rx="16" fill="#161b22" stroke="#30363d"/>
+    <text x="66" y="21" fill="#58a6ff" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700">REPO SHOWCASE</text>
+    <text x="0" y="88" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="44" font-weight="800">Workflow Catalog</text>
+    <text x="0" y="132" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="44" font-weight="800">Documentation Vitrine</text>
+    <text x="0" y="178" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20">README orienté GitHub, navigation rapide, couverture visuelle, maintenance et roadmap.</text>
+    <g transform="translate(0,220)">
+      <rect width="170" height="84" rx="18" fill="#161b22" stroke="#30363d"/>
+      <text x="22" y="30" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Workflows</text>
+      <text x="22" y="62" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="30" font-weight="800">133</text>
+      <rect x="128" y="18" width="22" height="22" rx="11" fill="url(#accent1)"/>
+    </g>
+    <g transform="translate(190,220)">
+      <rect width="170" height="84" rx="18" fill="#161b22" stroke="#30363d"/>
+      <text x="22" y="30" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Node types</text>
+      <text x="22" y="62" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="30" font-weight="800">182</text>
+      <rect x="128" y="18" width="22" height="22" rx="11" fill="url(#accent2)"/>
+    </g>
+    <g transform="translate(380,220)">
+      <rect width="170" height="84" rx="18" fill="#161b22" stroke="#30363d"/>
+      <text x="22" y="30" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Models</text>
+      <text x="22" y="62" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="30" font-weight="800">87</text>
+      <rect x="128" y="18" width="22" height="22" rx="11" fill="url(#accent3)"/>
+    </g>
+  </g>
+  <g transform="translate(760,78)">
+    <rect width="410" height="264" rx="24" fill="#0d1117" stroke="#30363d"/>
+    <text x="28" y="42" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700">Coverage snapshot</text>
+    <text x="28" y="70" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">Domain share</text>
+
+    <text x="28" y="96" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">image</text>
+    <rect x="126" y="85" width="250" height="14" rx="7" fill="#161b22"/>
+    <rect x="126" y="85" width="280.0" height="14" rx="7" fill="#58a6ff"/>
+    <text x="386" y="96" fill="#8b949e" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">81</text>
+
+    <text x="28" y="130" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">video</text>
+    <rect x="126" y="119" width="250" height="14" rx="7" fill="#161b22"/>
+    <rect x="126" y="119" width="103.7" height="14" rx="7" fill="#8957e5"/>
+    <text x="386" y="130" fill="#8b949e" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">30</text>
+
+    <text x="28" y="164" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">3D</text>
+    <rect x="126" y="153" width="250" height="14" rx="7" fill="#161b22"/>
+    <rect x="126" y="153" width="34.6" height="14" rx="7" fill="#2ea043"/>
+    <text x="386" y="164" fill="#8b949e" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">10</text>
+
+    <text x="28" y="198" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">workflow audio</text>
+    <rect x="126" y="187" width="250" height="14" rx="7" fill="#161b22"/>
+    <rect x="126" y="187" width="24.2" height="14" rx="7" fill="#db6d28"/>
+    <text x="386" y="198" fill="#8b949e" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">7</text>
+
+    <text x="28" y="232" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">game_assets</text>
+    <rect x="126" y="221" width="250" height="14" rx="7" fill="#161b22"/>
+    <rect x="126" y="221" width="17.3" height="14" rx="7" fill="#bf3989"/>
+    <text x="386" y="232" fill="#8b949e" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">5</text>
+
+    <line x1="28" y1="214" x2="382" y2="214" stroke="#21262d"/>
+    <text x="28" y="242" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">Core dependency</text>
+    <text x="28" y="268" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700">sd_xl_base_1.0.safetensors</text>
+    <text x="28" y="290" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">Most reused model in the catalog</text>
+    <text x="382" y="268" fill="#58a6ff" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800">44</text>
+  </g>
+</svg>

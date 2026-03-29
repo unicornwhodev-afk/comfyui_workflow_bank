@@ -1,0 +1,100 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "hunyuan_video_t2v_720p_bf16.safetensors",
+      "weight_dtype": "bf16"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "clip_l.safetensors",
+      "type": "hunyuan_video"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "hunyuan_video_vae_bf16.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "input_image.png"
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["2", 0],
+      "text": "the scene comes to life, gentle camera movement, cinematic lighting, smooth motion"
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["2", 0],
+      "text": "blurry, low quality, static, flickering"
+    }
+  },
+  "7": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": ["4", 0],
+      "vae": ["3", 0]
+    }
+  },
+  "8": {
+    "class_type": "EmptyHunyuanLatentVideo",
+    "inputs": {
+      "width": 848,
+      "height": 480,
+      "length": 49,
+      "batch_size": 1
+    }
+  },
+  "9": {
+    "class_type": "LatentBatch",
+    "inputs": {
+      "samples1": ["7", 0],
+      "samples2": ["8", 0]
+    }
+  },
+  "10": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": ["1", 0],
+      "positive": ["5", 0],
+      "negative": ["6", 0],
+      "latent_image": ["9", 0],
+      "seed": 0,
+      "control_after_generate": "randomize",
+      "steps": 30,
+      "cfg": 6.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.85
+    }
+  },
+  "11": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": ["10", 0],
+      "vae": ["3", 0]
+    }
+  },
+  "12": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": ["11", 0],
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "hunyuan_i2v",
+      "format": "video/h264-mp4",
+      "pingpong": false,
+      "save_output": true
+    }
+  }
+}

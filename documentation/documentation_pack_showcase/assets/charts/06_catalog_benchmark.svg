@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="Catalog Benchmark">
+<defs>
+  <linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#1f6feb"/><stop offset="100%" stop-color="#58a6ff"/></linearGradient>
+  <linearGradient id="g2" x1="0" x2="1"><stop offset="0%" stop-color="#8957e5"/><stop offset="100%" stop-color="#bf8cff"/></linearGradient>
+  <linearGradient id="g3" x1="0" x2="1"><stop offset="0%" stop-color="#2ea043"/><stop offset="100%" stop-color="#56d364"/></linearGradient>
+  <linearGradient id="g4" x1="0" x2="1"><stop offset="0%" stop-color="#db6d28"/><stop offset="100%" stop-color="#f0883e"/></linearGradient>
+  <linearGradient id="g5" x1="0" x2="1"><stop offset="0%" stop-color="#bf3989"/><stop offset="100%" stop-color="#db61a2"/></linearGradient>
+</defs>
+<rect width="1200" height="320" rx="24" fill="#0d1117"/>
+<rect x="10" y="10" width="1180" height="300" rx="20" fill="#0d1117" stroke="#30363d"/>
+<text x="36" y="54" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="26" font-weight="800">Catalog Benchmark</text>
+<text x="36" y="82" fill="#8b949e" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Lecture propre pour README vitrine, sans pavé de métriques indigeste.</text>
+
+<text x="36" y="126" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Validation coverage</text>
+<rect x="290" y="110" width="760" height="18" rx="9" fill="#161b22"/>
+<rect x="290" y="110" width="760.0" height="18" rx="9" fill="url(#g1)"/>
+<text x="1080" y="126" text-anchor="end" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">133 / 133 valid</text>
+
+<text x="36" y="168" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">UI-first composition</text>
+<rect x="290" y="152" width="760" height="18" rx="9" fill="#161b22"/>
+<rect x="290" y="152" width="737.1" height="18" rx="9" fill="url(#g2)"/>
+<text x="1080" y="168" text-anchor="end" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">129 UI · 4 API</text>
+
+<text x="36" y="210" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Image domain share</text>
+<rect x="290" y="194" width="760" height="18" rx="9" fill="#161b22"/>
+<rect x="290" y="194" width="462.9" height="18" rx="9" fill="url(#g3)"/>
+<text x="1080" y="210" text-anchor="end" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">81 / 133</text>
+
+<text x="36" y="252" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Node diversity</text>
+<rect x="290" y="236" width="760" height="18" rx="9" fill="#161b22"/>
+<rect x="290" y="236" width="691.6" height="18" rx="9" fill="url(#g4)"/>
+<text x="1080" y="252" text-anchor="end" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">182 node types</text>
+
+<text x="36" y="294" fill="#c9d1d9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Model index breadth</text>
+<rect x="290" y="278" width="760" height="18" rx="9" fill="#161b22"/>
+<rect x="290" y="278" width="661.2" height="18" rx="9" fill="url(#g5)"/>
+<text x="1080" y="294" text-anchor="end" fill="#f0f6fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">87 models</text>
+</svg>
