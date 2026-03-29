@@ -1,0 +1,157 @@
+{
+  "last_node_id": 11,
+  "last_link_id": 14,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [50, 50],
+      "size": [315, 98],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [1], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [3], "slot_index": 1},
+        {"name": "VAE", "type": "VAE", "links": [12], "slot_index": 2}
+      ],
+      "properties": {"Node name for S&R": "CheckpointLoaderSimple"},
+      "widgets_values": ["DreamShaper_8_pruned.safetensors"]
+    },
+    {
+      "id": 2,
+      "type": "LoraLoader",
+      "pos": [450, 50],
+      "size": [350, 130],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 1},
+        {"name": "clip", "type": "CLIP", "link": 3}
+      ],
+      "outputs": [
+        {"name": "MODEL", "type": "MODEL", "links": [2], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [4, 5], "slot_index": 1}
+      ],
+      "properties": {"Node name for S&R": "LoraLoader"},
+      "widgets_values": ["add_detail_v5.safetensors", 0.7, 0.7]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [850, 50],
+      "size": [400, 150],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {"name": "clip", "type": "CLIP", "link": 4}
+      ],
+      "outputs": [
+        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [6], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "CLIPTextEncode"},
+      "widgets_values": ["detailed portrait of a warrior, armor, battle scene, epic lighting, highly detailed"]
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [850, 230],
+      "size": [400, 100],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {"name": "clip", "type": "CLIP", "link": 5}
+      ],
+      "outputs": [
+        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [7], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "CLIPTextEncode"},
+      "widgets_values": ["ugly, blurry, low quality"]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [850, 370],
+      "size": [315, 106],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {"name": "LATENT", "type": "LATENT", "links": [8], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "EmptyLatentImage"},
+      "widgets_values": [512, 768, 1]
+    },
+    {
+      "id": 6,
+      "type": "KSampler",
+      "pos": [1300, 100],
+      "size": [315, 262],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {"name": "model", "type": "MODEL", "link": 2},
+        {"name": "positive", "type": "CONDITIONING", "link": 6},
+        {"name": "negative", "type": "CONDITIONING", "link": 7},
+        {"name": "latent_image", "type": "LATENT", "link": 8}
+      ],
+      "outputs": [
+        {"name": "LATENT", "type": "LATENT", "links": [10], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "KSampler"},
+      "widgets_values": [0, "randomize", 30, 7.5, "dpmpp_2m", "karras", 1]
+    },
+    {
+      "id": 7,
+      "type": "VAEDecode",
+      "pos": [1650, 150],
+      "size": [210, 46],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {"name": "samples", "type": "LATENT", "link": 10},
+        {"name": "vae", "type": "VAE", "link": 12}
+      ],
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [13], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "VAEDecode"}
+    },
+    {
+      "id": 8,
+      "type": "SaveImage",
+      "pos": [1900, 100],
+      "size": [315, 270],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {"name": "images", "type": "IMAGE", "link": 13}
+      ],
+      "properties": {"Node name for S&R": "SaveImage"},
+      "widgets_values": ["sd15_lora"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "MODEL"],
+    [2, 2, 0, 6, 0, "MODEL"],
+    [3, 1, 1, 2, 1, "CLIP"],
+    [4, 2, 1, 3, 0, "CLIP"],
+    [5, 2, 1, 4, 0, "CLIP"],
+    [6, 3, 0, 6, 1, "CONDITIONING"],
+    [7, 4, 0, 6, 2, "CONDITIONING"],
+    [8, 5, 0, 6, 3, "LATENT"],
+    [10, 6, 0, 7, 0, "LATENT"],
+    [12, 1, 2, 7, 1, "VAE"],
+    [13, 7, 0, 8, 0, "IMAGE"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {"ds": {"scale": 1, "offset": [0, 0]}},
+  "version": 0.4
+}

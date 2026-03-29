@@ -1,0 +1,852 @@
+{
+  "last_node_id": 15,
+  "last_link_id": 20,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1,
+            2
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            19
+          ],
+          "slot_index": 2
+        }
+      ],
+      "widgets_values": [
+        "sd_xl_base_1.0.safetensors"
+      ],
+      "title": "SDXL Base"
+    },
+    {
+      "id": 2,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        40,
+        180
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            12,
+            13
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "slot_index": 2
+        }
+      ],
+      "widgets_values": [
+        "sd_xl_refiner_1.0.safetensors"
+      ],
+      "title": "SDXL Refiner"
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        360
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1
+        }
+      ],
+      "widgets_values": [
+        "mecha_lineart.png",
+        "image"
+      ],
+      "title": "Reference"
+    },
+    {
+      "id": 4,
+      "type": "CannyEdgePreprocessor",
+      "pos": [
+        400,
+        360
+      ],
+      "size": [
+        340,
+        110
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "CannyEdgePreprocessor"
+      },
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        100,
+        200,
+        1024
+      ],
+      "title": "Preprocess"
+    },
+    {
+      "id": 5,
+      "type": "ControlNetLoader",
+      "pos": [
+        40,
+        700
+      ],
+      "size": [
+        340,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        "control-lora-canny-rank256.safetensors"
+      ],
+      "title": "ControlNet"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        400,
+        40
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        4096,
+        4096,
+        0,
+        0,
+        4096,
+        4096,
+        "hard-surface mech concept art, layered armor plates, industrial weathering, cinematic rim light",
+        "hard-surface mech concept art, layered armor plates, industrial weathering, cinematic rim light"
+      ],
+      "title": "Base Prompt"
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        400,
+        320
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        4096,
+        4096,
+        0,
+        0,
+        4096,
+        4096,
+        "blurry, low quality, flat lighting, muddy materials, watermark, text",
+        "blurry, low quality, flat lighting, muddy materials, watermark, text"
+      ],
+      "title": "Base Negative"
+    },
+    {
+      "id": 8,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        860,
+        240
+      ],
+      "size": [
+        340,
+        166
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 7
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 4
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            9
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ],
+          "slot_index": 1
+        }
+      ],
+      "widgets_values": [
+        0.85,
+        0.0,
+        1.0
+      ],
+      "title": "Apply Control"
+    },
+    {
+      "id": 9,
+      "type": "EmptyLatentImage",
+      "pos": [
+        860,
+        520
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "title": "Latent"
+    },
+    {
+      "id": 10,
+      "type": "KSampler",
+      "pos": [
+        1260,
+        200
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 8
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 9
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        0,
+        "randomize",
+        28,
+        7.0,
+        "dpmpp_2m_sde",
+        "karras",
+        0.82
+      ],
+      "title": "Base Sampling"
+    },
+    {
+      "id": 11,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        1260,
+        520
+      ],
+      "size": [
+        420,
+        150
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
+      },
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        6.0,
+        4096,
+        4096,
+        "hard-surface mech concept art, layered armor plates, industrial weathering, cinematic rim light, ultra-clean finishing pass, fine material detail"
+      ],
+      "title": "Refiner Prompt"
+    },
+    {
+      "id": 12,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        1260,
+        720
+      ],
+      "size": [
+        420,
+        150
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
+      },
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        2.5,
+        4096,
+        4096,
+        "blur, oversharpening halos, low quality, duplicate details"
+      ],
+      "title": "Refiner Negative"
+    },
+    {
+      "id": 13,
+      "type": "KSampler",
+      "pos": [
+        1700,
+        440
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 14
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 15
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 16
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            18
+          ],
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        0,
+        "randomize",
+        16,
+        5.5,
+        "dpmpp_2m_sde",
+        "karras",
+        0.25
+      ],
+      "title": "Refiner Sampling"
+    },
+    {
+      "id": 14,
+      "type": "VAEDecode",
+      "pos": [
+        2060,
+        520
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 18
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Decode"
+    },
+    {
+      "id": 15,
+      "type": "SaveImage",
+      "pos": [
+        2320,
+        440
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "widgets_values": [
+        "generated/sdxl/mecha_lineart_canny_refiner"
+      ],
+      "title": "Save"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      1,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      5,
+      0,
+      8,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      5,
+      4,
+      0,
+      8,
+      3,
+      "IMAGE"
+    ],
+    [
+      6,
+      6,
+      0,
+      8,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      7,
+      0,
+      8,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      1,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      9,
+      8,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      10,
+      8,
+      1,
+      10,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      9,
+      0,
+      10,
+      3,
+      "LATENT"
+    ],
+    [
+      12,
+      2,
+      1,
+      11,
+      0,
+      "CLIP"
+    ],
+    [
+      13,
+      2,
+      1,
+      12,
+      0,
+      "CLIP"
+    ],
+    [
+      14,
+      2,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      15,
+      11,
+      0,
+      13,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      12,
+      0,
+      13,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      17,
+      10,
+      0,
+      13,
+      3,
+      "LATENT"
+    ],
+    [
+      18,
+      13,
+      0,
+      14,
+      0,
+      "LATENT"
+    ],
+    [
+      19,
+      1,
+      2,
+      14,
+      1,
+      "VAE"
+    ],
+    [
+      20,
+      14,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}
