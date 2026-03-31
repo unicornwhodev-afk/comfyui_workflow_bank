@@ -4,8 +4,6 @@
 
 # Workflow Catalog · Repo Showcase
 
-Documentation restructurée pour une lecture **GitHub vitrine**: bannière hero, badges propres, ancres de navigation, quick start, couverture, maintenance et roadmap. Parce qu'un README qui ressemble à une benne de logs ne vend rien, même quand le contenu est bon.
-
 <p>
   <img src="assets/badges/workflows.svg" alt="badge workflows" />
   <img src="assets/badges/valid.svg" alt="badge valid" />
