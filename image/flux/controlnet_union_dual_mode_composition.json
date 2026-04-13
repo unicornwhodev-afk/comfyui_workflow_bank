@@ -285,7 +285,7 @@
         "Node name for S&R": "DepthAnythingV2Preprocessor"
       },
       "widgets_values": [
-        "depth_anything_v2_vitl.pth",
+        "depth_anything_v2_vitl.safetensors",
         512
       ],
       "title": "Depth Preprocessor"
@@ -632,7 +632,7 @@
         58
       ],
       "flags": {},
-      "order": 14,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -671,7 +671,7 @@
         186
       ],
       "flags": {},
-      "order": 15,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
