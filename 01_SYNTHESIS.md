@@ -15,7 +15,7 @@
 ## Key readings
 
 ### Domain composition
-- **image** porte l'essentiel du volume, avec **81 workflows**
+- **image** porte l'essentiel du volume, avec **86 workflows**
 - **video** constitue le second bloc avec **30 workflows**
 - **3D** et **workflow audio** restent plus compacts mais spécialisés
 
