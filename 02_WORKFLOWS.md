@@ -1,6 +1,6 @@
 # Catalogue des workflows
 ## Répartition par catégorie
-### image/text2img · 27 workflows
+### image/text2img · 28 workflows
 | Path | Format | Status | Nodes | Links |
 |---|---:|---:|---:|---:|
 | `image/text2img/flux/complex/creature_depth_hires.json` | `ui` | `valid` | 18 | 25 |
@@ -29,6 +29,7 @@
 | `image/text2img/sdxl/complex/mecha_lineart_canny_refiner.json` | `ui` | `valid` | 15 | 20 |
 | `image/text2img/sdxl/complex/poster_layout_canny_refiner.json` | `ui` | `valid` | 15 | 20 |
 | `image/text2img/sdxl/complex/product_packshot_depth_refiner.json` | `ui` | `valid` | 15 | 20 |
+| `image/text2img/sdxl/complex/storyboard_multi_control_refiner.json` | `ui` | `valid` | 18 | 25 |
 | `image/text2img/sdxl/lora.json` | `ui` | `valid` | 8 | 11 |
 
 ### video/misc · 11 workflows
@@ -60,10 +61,11 @@
 | `3D/perfecttrellis.json` | `ui` | `valid` | 11 | 12 |
 | `3D/surface_reconstruction.json` | `ui` | `valid` | 4 | 4 |
 
-### image/flux · 10 workflows
+### image/flux · 11 workflows
 | Path | Format | Status | Nodes | Links |
 |---|---:|---:|---:|---:|
 | `image/flux/controlnet_union_multimode.json` | `ui` | `valid` | 16 | 16 |
+| `image/flux/controlnet_union_dual_mode_composition.json` | `ui` | `valid` | 18 | 20 |
 | `image/flux/dev.json` | `ui` | `valid` | 9 | 9 |
 | `image/flux/flux1-dev-nf4.json` | `api` | `valid` | 10 | 0 |
 | `image/flux/flux_dev_comfyui.json` | `ui` | `valid` | 9 | 9 |
@@ -74,11 +76,12 @@
 | `image/flux/ipadapter_style_transfer.json` | `ui` | `valid` | 14 | 12 |
 | `image/flux/lora.json` | `ui` | `valid` | 10 | 11 |
 
-### image/img2img · 10 workflows
+### image/img2img · 11 workflows
 | Path | Format | Status | Nodes | Links |
 |---|---:|---:|---:|---:|
 | `image/img2img/sd15/complex/anime_pose_depth_canny_redesign.json` | `ui` | `valid` | 19 | 29 |
 | `image/img2img/sd15/complex/character_turnaround_guided.json` | `ui` | `valid` | 19 | 29 |
+| `image/img2img/sd15/complex/cinematic_keyframe_multi_stack_redesign.json` | `ui` | `valid` | 19 | 29 |
 | `image/img2img/sd15/complex/comic_ink_to_paint.json` | `ui` | `valid` | 19 | 29 |
 | `image/img2img/sd15/complex/cosplay_photo_to_anime.json` | `ui` | `valid` | 19 | 29 |
 | `image/img2img/sd15/complex/dungeon_map_redraw.json` | `ui` | `valid` | 19 | 29 |
@@ -88,7 +91,7 @@
 | `image/img2img/sd15/complex/sprite_sheet_pose_locked.json` | `ui` | `valid` | 19 | 29 |
 | `image/img2img/sd15/complex/storybook_scene_guided.json` | `ui` | `valid` | 19 | 29 |
 
-### image/upscale · 10 workflows
+### image/upscale · 11 workflows
 | Path | Format | Status | Nodes | Links |
 |---|---:|---:|---:|---:|
 | `image/upscale/sdxl/boardgame_card_upscale.json` | `ui` | `valid` | 14 | 23 |
@@ -97,6 +100,7 @@
 | `image/upscale/sdxl/fashion_closeup_retouch.json` | `ui` | `valid` | 14 | 23 |
 | `image/upscale/sdxl/food_photo_relight.json` | `ui` | `valid` | 14 | 23 |
 | `image/upscale/sdxl/illustration_print_master.json` | `ui` | `valid` | 14 | 23 |
+| `image/upscale/sdxl/packaging_art_retouch_master.json` | `ui` | `valid` | 14 | 23 |
 | `image/upscale/sdxl/pixel_art_poster_clean.json` | `ui` | `valid` | 14 | 23 |
 | `image/upscale/sdxl/portrait_2x_retouch.json` | `ui` | `valid` | 14 | 23 |
 | `image/upscale/sdxl/product_macro_refine.json` | `ui` | `valid` | 14 | 23 |
@@ -143,9 +147,10 @@
 | `game_assets/textures/sdxl/trim_sheet_sci_fi_panels.json` | `ui` | `valid` | 14 | 18 |
 | `game_assets/textures/sdxl/water_surface_stylized.json` | `ui` | `valid` | 14 | 18 |
 
-### image/ipadapter · 5 workflows
+### image/ipadapter · 6 workflows
 | Path | Format | Status | Nodes | Links |
 |---|---:|---:|---:|---:|
+| `image/ipadapter/brand_mascot_consistency_sdxl.json` | `ui` | `valid` | 11 | 13 |
 | `image/ipadapter/face_consistency_sdxl.json` | `ui` | `valid` | 11 | 13 |
 | `image/ipadapter/faceid.json` | `ui` | `valid` | 10 | 13 |
 | `image/ipadapter/ipadapter_faceid_comfyui.json` | `ui` | `valid` | 10 | 13 |
@@ -208,4 +213,3 @@
 | Path | Format | Status | Nodes | Links |
 |---|---:|---:|---:|---:|
 | `video/ltxv/ltxv_13b_t2v.json` | `ui` | `valid` | 12 | 8 |
-

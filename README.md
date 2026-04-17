@@ -31,7 +31,7 @@
 
 ## Overview
 
-Le catalogue couvre **133 workflows** validés, avec une base très majoritairement orientée **UI** (129) et un cœur d'usage centré sur **image/text2img**. La dépendance la plus réutilisée est **`checkpoints/sd_xl_base_1.0.safetensors`** avec **44** occurrences, ce qui en fait le premier point de contrôle pour la maintenance transverse.
+Le catalogue couvre **138 workflows** validés, avec une base très majoritairement orientée **UI** (134) et un cœur d'usage centré sur **image/text2img**. La dépendance la plus réutilisée est **`checkpoints/sd_xl_base_1.0.safetensors`** avec **46** occurrences, ce qui en fait le premier point de contrôle pour la maintenance transverse.
 
 <picture>
   <img src="assets/charts/06_catalog_benchmark.svg" alt="Catalog benchmark" width="100%" />
